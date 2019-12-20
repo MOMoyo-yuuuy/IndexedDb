@@ -1,0 +1,504 @@
+<html>
+	<style type="text/css">
+		ul{
+			margin: 0;
+			padding-left: 0;
+			
+		}
+		li{
+			list-style-type: none;
+			display: flex;
+			border:solid slategray;
+			border-width: 1.5px;
+			padding-top: 1.5rem;
+			padding-bottom: 1.5rem;
+			background: whitesmoke;
+			margin:-2px;
+		}
+		img{
+			width: 4rem;
+			height: 4rem;
+			border:solid slategray;
+			border-width: 1.5px;
+		}
+		.title{
+			display: flex;
+			
+			padding-right: 47.8rem;
+			padding-top: 2rem;
+		}
+		.titletext{
+			font-weight: 900;
+			color: chocolate;
+			font-size: 3rem;
+			text-decoration: none;
+		}
+		.subtitle{
+			font-weight: 900;
+			color: chocolate;
+			font-size: 1rem;
+			padding-left: 2.5rem;
+		}
+		.ShoppingCartitle{
+			padding-left: 1rem;
+			font-weight: 900;
+			font-size: 2rem;
+			//border: solid red; 
+		}
+		.test{
+			padding-top: 1.5rem;
+
+		}
+		.secondblock{
+			display: flex;
+			border-bottom: solid lavender;
+			
+			padding-top: 2rem;
+		}
+		.first{
+			padding-left: 3rem;
+		}
+		.panel{
+			padding-left: 1.5rem;
+			font-weight: 900;
+			border-right: solid lavender; 
+			border-width: 1.5px;
+			padding-right: 1.5rem;
+		}
+		.last{
+			padding-left: 1.5rem;
+			font-weight: 900;
+		}
+		
+		.select{
+			border-bottom: solid chocolate;
+			
+		}
+		.panelborder{
+			padding-bottom: 1rem;
+		}
+		.main{
+			display: flex;
+		}
+		.fillblock{
+			padding-left: 6rem;
+			padding-right: 6rem;
+
+		}
+		.thirdblock{
+			
+			padding-top: 1rem;
+			//padding-bottom: 1rem;
+		}
+		.thirdblockpanel{
+			color: slategray;
+
+		}
+		.info{
+			padding-left: 8rem;
+		}
+		.price{
+			padding-left:18rem;
+		}
+		.number{
+			padding-left: 6rem;
+		}
+		.amount{
+			padding-left: 6rem;
+		}
+		.state{
+			padding-left: 6rem;
+		}
+		.store{
+			font-weight: 900;
+		}
+		.storename{
+			color: slategray;
+		}
+		.wholestore{
+			padding-top: 1rem;
+			padding-left: 3rem;
+			padding-bottom: 1rem;
+		}
+		.listimgclass{
+			padding-left: 3rem;
+		}
+		.storeinfo{
+			
+			//border:solid red;
+		}
+		.dishinfo{
+			//padding-bottom: 1.5rem;
+			padding-top: 1.5rem;
+			width: 6rem;
+			text-align: center;
+			//border: solid red;
+		}
+		.dishinfodetail{
+			width: 14rem;
+			padding-left: 3rem;
+			padding-top: 1.5rem;
+			
+			color: dimgray;
+			//border:solid red;
+		}
+		.dishprice{
+			font-weight:900 ;
+			padding-top: 1.5rem;
+			
+
+		}
+		.dishfillblock{
+			border:solid red;
+			margin-left: 3.75rem;
+			margin-right: 3.75rem;
+		}
+		.dishnumber{
+			padding-top: 1.5rem;
+			//width: 7.5rem;
+			padding-left: 7.5rem;
+			//border:solid red;
+		}
+		.dishamout{
+			padding-top: 1.5rem;
+			padding-left: 7.5rem;
+			color: chocolate;
+			font-weight: 900;
+			//border:solid red;
+		}
+		.dishstate{
+			padding-top: 1.5rem;
+			padding-left: 6.8rem;
+			color:dimgray;
+		}
+		.delete{
+			padding-top: 1.5rem;
+			text-align: center;
+			width: 6rem;
+		}
+		.disappear{
+			display: none;
+		}
+		.show{
+			display: run-in;
+		}
+	</style>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+		<title>ShoppingCar</title>
+	</head>
+	<body>
+		<div class="main">
+		<div class="fillblock">
+		</div>
+		<div>
+			<div class="title">
+				<div>
+				<a class="titletext" href="index.html">
+					食堂网
+				</a>
+				<div class="subtitle">
+					小食堂记
+				</div>
+				</div>
+				<div class="test">
+					<a class="ShoppingCartitle">购物车</a>
+				</div>
+			</div>
+			<div class="secondblock">
+				<div class="panelborder select"><a class="panel first" id="select1">全部菜品</a></div>
+				<div class="panelborder"><a class="panel" id="select2">待取菜品</a></div>
+				<div class="panelborder"><a class="last" id="select3">待做菜品</a></div>
+			</div>
+			<div class="thirdblock">
+				<a class="thirdblockpanel info">商品信息</a>
+				<a class="thirdblockpanel price">单价</a>
+				<a class="thirdblockpanel number">数量</a>
+				<a class="thirdblockpanel amount">金额</a>
+				<a class="thirdblockpanel state">状态</a>
+			</div>
+			<div>
+				<div class="wholestore">
+					<a class="store">店铺:</a><a class="storename">&nbsp小炒</a>
+				</div>
+				<div class="storeinfo">
+					<ul id="fry">
+					</ul>
+				</div>
+				<div class="wholestore">
+					<a class="store">店铺:</a><a class="storename">&nbsp烧菜</a>
+				</div>
+				<div class="storeinfo">
+					<ul id="cook">
+						
+					</ul>
+				</div>
+			</div>
+
+		</div>
+		<div class="fillblock">
+		</div>
+		</div>
+	</body>
+	<script src="./js/jquery.js"></script>
+	<script>
+		var db;
+		var globalvalue=new Array(13);
+		function openDB(){
+			var request = window.indexedDB.open("restaurant", 1);
+		request.onerror = function (event) {
+			console.log('数据库打开报错');
+		}
+		request.onsuccess = function (event) {
+			db = request.result;
+			console.log('数据库打开成功');
+			for(i=1;i<=12;i++){
+				getFood(i);
+				//console.log(globalvalue[i]);
+			
+		}
+		}
+
+
+		function getObjectStore(store_name,mode){
+			var tx=db.transaction(store_name,mode);
+			return tx.objectStore(store_name);
+		}
+
+
+		function getFood(id){
+			var store=getObjectStore("myfood",'readwrite');
+			var req=store.get(id);
+			//var target;
+			req.onerror=function(event){
+				console.log('get failure');
+			}
+
+			req.onsuccess=function(event){
+				globalvalue[id]=event.target.result;
+				if(globalvalue[id]){
+					var food=globalvalue[id];
+					console.log(food.foodid);
+					var amount=food.foodnumber*food.foodprice;
+					//console.log(amount);
+					if(food.foodname=="smellfish"){
+						if(food.foodstate==0){
+						$("#fry").append('<li><div class="listimgclass"><img src="./image/smellfish1.jpeg"></div><a class="dishinfo">鱼香肉丝</a><a class="dishinfodetail">无特殊要求</a><a class="dishprice">¥10</a><a class="dishnumber">'+food.foodnumber+'</a><a class="dishamout">¥'+amount+'</a><a class="dishstate" state="done">待取</a><a class="delete" id="delete1">删除</a></li>');
+					}
+						if(food.foodstate==1){
+							$("#fry").append('<li><div class="listimgclass"><img src="./image/smellfish1.jpeg"></div><a class="dishinfo">鱼香肉丝</a><a class="dishinfodetail">无特殊要求</a><a class="dishprice">¥10</a><a class="dishnumber">'+food.foodnumber+'</a><a class="dishamout">¥'+amount+'</a><a class="dishstate" state="done">待做</a><a class="delete" id="delete1">删除</a></li>');
+						}
+					}
+					if(food.foodname=="spicypork"){
+						if(food.foodstate==0){
+						$("#cook").append('<li><div class="listimgclass"><img src="./image/spicypork.jpg"></div><a class="dishinfo">水煮牛肉</a><a class="dishinfodetail">无特殊要求</a><a class="dishprice">¥16</a><a class="dishnumber">'+food.foodnumber+'</a><a class="dishamout">¥'+amount+'</a><a class="dishstate" state="done">待取</a><a class="delete" id="delete2">删除</a></li>');
+						}
+						if(food.foodstate==1){
+							$("#cook").append('<li><div class="listimgclass"><img src="./image/spicypork.jpg"></div><a class="dishinfo">水煮牛肉</a><a class="dishinfodetail">无特殊要求</a><a class="dishprice">¥16</a><a class="dishnumber">'+food.foodnumber+'</a><a class="dishamout">¥'+amount+'</a><a class="dishstate" state="done">待做</a><a class="delete" id="delete2">删除</a></li>');
+						}
+					}
+					if(food.foodname=="beef"){
+						if(food.foodstate==0){
+						$("#cook").append('<li><div class="listimgclass"><img src="./image/beef.jpg"></div><a class="dishinfo">红烧牛肉</a><a class="dishinfodetail">无特殊要求</a><a class="dishprice">¥16</a><a class="dishnumber">'+food.foodnumber+'</a><a class="dishamout">¥'+amount+'</a><a class="dishstate" state="done">待取</a><a class="delete" id="delete3">删除</a></li>');
+						}
+						if(food.foodstate==1){
+						$("#cook").append('<li><div class="listimgclass"><img src="./image/beef.jpg"></div><a class="dishinfo">红烧牛肉</a><a class="dishinfodetail">无特殊要求</a><a class="dishprice">¥16</a><a class="dishnumber">'+food.foodnumber+'</a><a class="dishamout">¥'+amount+'</a><a class="dishstate" state="done">待做</a><a class="delete" id="delete3">删除</a></li>');
+						}
+					}
+					if(food.foodname=="spicypig"){
+						if(food.foodstate==0){
+						$("#fry").append('<li><div class="listimgclass"><img src="./image/spicypig.png"></div><a class="dishinfo">尖椒肉丝</a><a class="dishinfodetail">无特殊要求</a><a class="dishprice">¥10</a><a class="dishnumber">'+food.foodnumber+'</a><a class="dishamout">¥'+amount+'</a><a class="dishstate" state="done">待取</a><a class="delete" id="delete4">删除</a></li>');
+						}
+						if(food.foodstate==1){
+						$("#fry").append('<li><div class="listimgclass"><img src="./image/spicypig.png"></div><a class="dishinfo">尖椒肉丝</a><a class="dishinfodetail">无特殊要求</a><a class="dishprice">¥10</a><a class="dishnumber">'+food.foodnumber+'</a><a class="dishamout">¥'+amount+'</a><a class="dishstate" state="done">待做</a><a class="delete" id="delete4">删除</a></li>');
+						}
+					}
+					if(food.foodname=="chicken"){
+						if(food.foodstate==0){
+						$("#cook").append('<li><div class="listimgclass"><img src="./image/chicken.jpg"></div><a class="dishinfo">道口烧鸡</a><a class="dishinfodetail">无特殊要求</a><a class="dishprice">¥26</a><a class="dishnumber">'+food.foodnumber+'</a><a class="dishamout">¥'+amount+'</a><a class="dishstate" state="done">待取</a><a class="delete" id="delete5">删除</a></li>');
+						}
+						if(food.foodstate==1){
+						$("#cook").append('<li><div class="listimgclass"><img src="./image/chicken.jpg"></div><a class="dishinfo">道口烧鸡</a><a class="dishinfodetail">无特殊要求</a><a class="dishprice">¥26</a><a class="dishnumber">'+food.foodnumber+'</a><a class="dishamout">¥'+amount+'</a><a class="dishstate" state="done">待做</a><a class="delete" id="delete5">删除</a></li>');
+						}
+					}
+					if(food.foodname=="potato"){
+						if(food.foodstate==0){
+						$("#cook").append('<li><div class="listimgclass"><img src="./image/potato.png"></div><a class="dishinfo">红烧土豆</a><a class="dishinfodetail">无特殊要求</a><a class="dishprice">¥8</a><a class="dishnumber">'+food.foodnumber+'</a><a class="dishamout">¥'+amount+'</a><a class="dishstate" state="done">待取</a><a class="delete" id="delete6">删除</a></li>');
+						}
+						if(food.foodstate==1){
+						$("#cook").append('<li><div class="listimgclass"><img src="./image/potato.png"></div><a class="dishinfo">红烧土豆</a><a class="dishinfodetail">无特殊要求</a><a class="dishprice">¥8</a><a class="dishnumber">'+food.foodnumber+'</a><a class="dishamout">¥'+amount+'</a><a class="dishstate" state="done">待做</a><a class="delete" id="delete6">删除</a></li>');
+						}
+					}
+					if(food.foodname=="egg"){
+						if(food.foodstate==0){
+						$("#fry").append('<li><div class="listimgclass"><img src="./image/egg.jpg"></div><a class="dishinfo">蛋炒饭</a><a class="dishinfodetail">无特殊要求</a><a class="dishprice">¥6</a><a class="dishnumber">'+food.foodnumber+'</a><a class="dishamout">¥'+amount+'</a><a class="dishstate" state="done">待取</a><a class="delete" id="delete7">删除</a></li>');
+						}
+						if(food.foodstate==1){
+						$("#fry").append('<li><div class="listimgclass"><img src="./image/egg.jpg"></div><a class="dishinfo">蛋炒饭</a><a class="dishinfodetail">无特殊要求</a><a class="dishprice">¥6</a><a class="dishnumber">'+food.foodnumber+'</a><a class="dishamout">¥'+amount+'</a><a class="dishstate" state="done">待做</a><a class="delete" id="delete7">删除</a></li>');
+						}
+
+					}
+					if(food.foodname=="cowpea"){
+						if(food.foodstate==0){
+						$("#fry").append('<li><div class="listimgclass"><img src="./image/cowpea.jpg"></div><a class="dishinfo">烂肉豇豆</a><a class="dishinfodetail">无特殊要求</a><a class="dishprice">¥11</a><a class="dishnumber">'+food.foodnumber+'</a><a class="dishamout">¥'+amount+'</a><a class="dishstate" state="done">待取</a><a class="delete" id="delete8">删除</a></li>');
+						}
+						if(food.foodstate==1){
+						$("#fry").append('<li><div class="listimgclass"><img src="./image/cowpea.jpg"></div><a class="dishinfo">烂肉豇豆</a><a class="dishinfodetail">无特殊要求</a><a class="dishprice">¥11</a><a class="dishnumber">'+food.foodnumber+'</a><a class="dishamout">¥'+amount+'</a><a class="dishstate" state="done">待做</a><a class="delete" id="delete8">删除</a></li>');
+						}
+					}
+					if(food.foodname=="eggsoup"){
+						if(food.foodstate==0){
+						$("#cook").append('<li><div class="listimgclass"><img src="./image/eggsoup.jpg"></div><a class="dishinfo">紫菜蛋花汤</a><a class="dishinfodetail">无特殊要求</a><a class="dishprice">¥8</a><a class="dishnumber">'+food.foodnumber+'</a><a class="dishamout">¥'+amount+'</a><a class="dishstate" state="done">待取</a><a class="delete" id="delete9">删除</a></li>');
+						}
+						if(food.foodstate==1){
+						$("#cook").append('<li><div class="listimgclass"><img src="./image/eggsoup.jpg"></div><a class="dishinfo">紫菜蛋花汤</a><a class="dishinfodetail">无特殊要求</a><a class="dishprice">¥8</a><a class="dishnumber">'+food.foodnumber+'</a><a class="dishamout">¥'+amount+'</a><a class="dishstate" state="done">待做</a><a class="delete" id="delete9">删除</a></li>');
+						}
+					}
+					if(food.foodname=="curry"){
+						if(food.foodstate==0){
+						$("#fry").append('<li><div class="listimgclass"><img src="./image/curry.jpg"></div><a class="dishinfo">咖喱鸡丁</a><a class="dishinfodetail">无特殊要求</a><a class="dishprice">¥12</a><a class="dishnumber">'+food.foodnumber+'</a><a class="dishamout">¥'+amount+'</a><a class="dishstate" state="done">待取</a><a class="delete" id="delete10">删除</a></li>');
+						}
+						if(food.foodstate==1){
+						$("#fry").append('<li><div class="listimgclass"><img src="./image/curry.jpg"></div><a class="dishinfo">咖喱鸡丁</a><a class="dishinfodetail">无特殊要求</a><a class="dishprice">¥12</a><a class="dishnumber">'+food.foodnumber+'</a><a class="dishamout">¥'+amount+'</a><a class="dishstate" state="done">待做</a><a class="delete" id="delete10">删除</a></li>');
+						}
+
+					}
+
+					if(food.foodname=="mushroom"){
+						if(food.foodstate==0){
+						$("#cook").append('<li><div class="listimgclass"><img src="./image/mushroom.jpg"></div><a class="dishinfo">小鸡炖蘑菇</a><a class="dishinfodetail">无特殊要求</a><a class="dishprice">¥12</a><a class="dishnumber">'+food.foodnumber+'</a><a class="dishamout">¥'+amount+'</a><a class="dishstate" state="done">待取</a><a class="delete" id="delete11">删除</a></li>');
+						}
+						if(food.foodstate==1){
+						$("#cook").append('<li><div class="listimgclass"><img src="./image/mushroom.jpg"></div><a class="dishinfo">小鸡炖蘑菇</a><a class="dishinfodetail">无特殊要求</a><a class="dishprice">¥12</a><a class="dishnumber">'+food.foodnumber+'</a><a class="dishamout">¥'+amount+'</a><a class="dishstate" state="done">待做</a><a class="delete" id="delete11">删除</a></li>');
+						}
+					}
+					if(food.foodname=="garlic"){
+						if(food.foodstate==0){
+						$("#cook").append('<li><div class="listimgclass"><img src="./image/garlic.png"></div><a class="dishinfo">蒜泥白肉</a><a class="dishinfodetail">无特殊要求</a><a class="dishprice">¥14</a><a class="dishnumber">'+food.foodnumber+'</a><a class="dishamout">¥'+amount+'</a><a class="dishstate" state="done">待取</a><a class="delete" id="delete12">删除</a></li>');
+						}
+						if(food.foodstate==1){
+						$("#cook").append('<li><div class="listimgclass"><img src="./image/garlic.png"></div><a class="dishinfo">蒜泥白肉</a><a class="dishinfodetail">无特殊要求</a><a class="dishprice">¥14</a><a class="dishnumber">'+food.foodnumber+'</a><a class="dishamout">¥'+amount+'</a><a class="dishstate" state="done">待做</a><a class="delete" id="delete12">删除</a></li>');
+						}						
+					}
+				}
+				}
+					//console.log(globalvalue[id]);
+					console.log('have the food');
+			}
+		}
+
+		
+		function deleteFood(id){
+			var req=db.transaction("myfood",'readwrite').objectStore('myfood').delete(id);
+				req.onerror=function(event){
+				console.log("delete failure");
+			}
+			req.onsuccess=function(event){
+				console.log("delete succuss");
+			}
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+		$(document).ready(function(){
+			openDB();
+			
+
+
+
+
+
+			$("#select1").click(function(){
+				$(".panelborder").removeClass("select");
+				$("#select1").parent().addClass("select");
+				$(".dishstate").parent().removeClass("disappear");
+				$(".dishstate").parent().addClass("show");
+			});
+
+			$("#select2").click(function(){
+				$(".panelborder").removeClass("select");
+				$("#select2").parent().addClass("select");
+				$("[state='done']").parent().removeClass("disappear");
+				$("[state='undo']").parent().addClass("disappear");
+			});
+
+			$("#select3").click(function(){
+				$(".panelborder").removeClass("select");
+				$("#select3").parent().addClass("select");
+				$("[state='undo']").parent().removeClass("disappear");
+				$("[state='done']").parent().addClass("disappear");
+			});
+
+			$('body').on("click",'#delete1',function(){
+				deleteFood(1);
+				$("#delete1").parent().remove();
+				alert("成功取消");
+			});
+			$('body').on("click",'#delete2',function(){
+				deleteFood(2);
+				$("#delete2").parent().remove();
+				alert("成功取消");
+			});
+			$('body').on("click",'#delete3',function(){
+				deleteFood(3);
+				$("#delete3").parent().remove();
+				alert("成功取消");
+			});
+			$('body').on("click",'#delete4',function(){
+				deleteFood(4);
+				$("#delete4").parent().remove();
+				alert("成功取消");
+			});
+			$('body').on("click",'#delete5',function(){
+				deleteFood(5);
+				$("#delete5").parent().remove();
+				alert("成功取消");
+			});
+			$('body').on("click",'#delete6',function(){
+				deleteFood(6);
+				$("#delete6").parent().remov();
+				alert("成功取消");
+			});
+			$('body').on("click",'#delete7',function(){
+				deleteFood(7);
+				$("#delete7").parent().remove();
+				alert("成功取消");
+			});
+			$('body').on("click",'#delete8',function(){
+				deleteFood(8);
+				$("#delete8").parent().remove();
+				alert("成功取消");
+			});
+			$('body').on("click",'#delete9',function(){
+				deleteFood(9);
+				$("#delete9").parent().remove();
+				alert("成功取消");
+			});
+			$('body').on("click",'#delete10',function(){
+				deleteFood(10);
+				$("#delete10").parent().remove();
+				alert("成功取消");
+			});
+			$('body').on("click",'#delete11',function(){
+				deleteFood(11);
+				$("#delete11").parent().remove();
+				alert("成功取消");
+			});
+			$('body').on("click",'#delete12',function(){
+				deleteFood(12);
+				$("#delete12").parent().remove();
+				alert("成功取消");
+			});
+});
+
+	</script>
+</html>

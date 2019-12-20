@@ -1,0 +1,1249 @@
+<html>
+<style type="text/css">
+	@font-face {
+		font-family: 'f-Regular';
+		src: url(./fugue_regular-de5d301e7b51d93352c13e1ed769da173f60761cdbe86738cdee60ea4e19e740.woff) format("woff");
+		font-weight: normal;
+		font-style: normal;
+		font-stretch:normal
+	}
+	:root{
+		--nicegreen: rgb(128,165,156);
+		--nicepink: rgb(238,215,222);
+		--niceyellow: rgb(249,223,172);
+	}
+	#forfix{
+		position:absolute;
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	.main{
+		display: grid;
+		position: relative;
+		left:0;
+		top:0;
+		z-index: 0;
+	}
+	.grid{
+		grid-template-areas:
+		"lunch breakfast"
+		"lunch dinner";
+		grid-template-rows: 
+		50vh 50vh;
+		grid-template-columns: 
+		50vw 50vw;
+	}
+	#breakfast {grid-area: breakfast;background-color: var(--nicegreen);}
+	#dinner {grid-area: dinner;background-color: var(--niceyellow);}
+	#lunch {grid-area: lunch;background-color: var(--nicepink);}
+	#menubar{
+		height : 200px;
+		width : 100%;
+		z-index: 1;
+		position: absolute;
+		left:0;
+		top:0;
+	}
+	.dealmenu{
+		display:none;
+		margin-top:130px;
+		margin-left:auto;
+		margin-right: auto;
+		width: 90%;
+		height:500px;
+		background-color: black;
+		z-index: 5;
+		position: relative;
+		opacity: 0.5;
+		border-radius: 30px;
+	}
+	.adddealmenu{
+		margin-top:120px;
+		margin-left:auto;
+		margin-right: auto;
+		width: 90%;
+		height:500px;
+		background-color: black;
+		z-index: 5;
+		position: relative;
+		opacity: 0.5;
+		border-radius: 30px;
+		transition: all .5s ease-in-out;
+	}
+	li{
+		margin-top: 70px;
+		margin-right: 60px;
+		list-style: none;
+		display: block;
+		text-decoration: none;
+		float:left;
+		font-family: Bold;
+		font-size: 15px;
+		transition: all .5s ease-in-out;
+	}
+	img{
+		float: left;
+	}
+	#menubar img:hover{
+		transform: rotateY(360deg);
+	}
+	.select0{
+		padding-top:10px;
+		color:red;
+		transition: all .5s ease-in-out;
+	}
+	.menubar ul{
+		display: flex;
+	}
+	.menubar div{
+		display: flex;
+		padding:0 2rem;
+		height: 3rem;
+	}
+	.food{
+		color:white;
+		margin-left:20px;
+		margin-top:30px;
+	}
+	.minus{
+		cursor: pointer;
+	}
+	.plus{
+		cursor:pointer;
+	}
+
+	a{
+		color: black;
+		text-decoration:none;
+	}
+	a:hover{
+		color: red;
+	}
+	#secondlayout{
+		width:100%;
+		height:100%;
+		position:absolute;
+		top:100%;
+		left:0;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		overflow: hidden;
+	}
+	#secondlayout #bar{
+		display: flex;
+		flex-direction: row;
+		height:15%;
+		width: 100%;
+		background-color: rgb(204,188,181);
+	}
+	#secondlayout #menu2{
+		position:absolute;
+		top:8%;
+		left:0;
+		height:92%;
+		width:100%;
+		display: flex;
+		transition:all 1s ease-in-out;
+		z-index: 3;
+	}
+	#secondlayout #menu1{
+		position:absolute;
+		top:8%;
+		left:-100%;
+		height:92%;
+		width:100%;
+		display: flex;
+		opacity: 1;
+		transition:all 1s ease-in-out;
+		z-index: 1;
+	}
+	#secondlayout #menu3{
+		position:absolute;
+		top:8%;
+		left:100%;
+		height:92%;
+		width:100%;
+		display: flex;
+		opacity: 1;
+		transition:all 1s ease-in-out;
+		z-index: 1;
+	}
+	#floor1{
+		display: flex;
+		position:relative;
+		flex-direction: column;
+		//background-color:rgb(17,28,81);
+		width:25%;
+		height:100%;
+	}
+	#floor2{
+		display: flex;
+		position:relative;
+		flex-direction: column;
+		//background-color:rgb(24,43,14);
+		width:25%;
+		height:100%;
+	}
+	#floor3{
+		display: flex;
+		position:relative;
+		flex-direction: column;
+		//background-color:var(--nicegreen);
+		width:25%;
+		height:100%;
+	}
+	#floor4{
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		//background-color:rgb(51,45,42);
+		width:25%;
+		height:100%;
+	}
+	.inblock{
+		//position:relative;
+		margin-top:100px;
+		margin-left: auto;
+		margin-right: auto;
+		width:70%;
+		height:50%;
+		//border:solid 3px;
+		//border-color: grey;
+		//border: solid red;
+	}
+	.inblock img{
+		position: relative;
+		width:100%;
+		height:62%;
+	}
+	.inblock .name{
+		display: inline-block;
+		//margin-top:40px;
+		width:100%;
+		text-align:center;
+		font-size:20px;
+		color: white;
+		background: black;
+		//border:solid red;
+	}
+	.cbutton{
+		display: flex;
+		flex-direction: row;
+		//margin-top:40px;
+		width:100%;
+		height:8%;
+		margin-left: auto;
+		margin-right: auto;
+		background-color: white;
+		padding-top: 0.3rem;
+	}
+	.cbutton .price{
+		display: flex;
+		align-items:center;
+		justify-content: center;
+		width:25%;
+		height: 100%;
+		background: black;
+		color:white;
+		font-size: 30px;
+	}
+	.cbutton .quantity{
+		display: flex;
+		flex-direction: row;
+		width:50%;
+		height: 100%;
+		background: rgb(222,243,251);
+	}
+	.cbutton .OK{
+		display: flex;
+		align-items:center;
+		justify-content: center;
+		width:25%;
+		height: 100%;
+		background: crimson;
+		font-size: 30px;
+		cursor: pointer;
+	}
+	.quantity .minus{
+		display: flex;
+		align-items:center;
+		justify-content: center;
+		width:20%;
+		height:100%;
+		font-size: 30px;
+	}
+	.quantity .plus{
+		display: flex;
+		align-items:center;
+		justify-content: center;
+		width:20%;
+		height:100%;
+		font-size: 30px;
+	}
+	.quantity .real{
+		display: flex;
+		align-items:center;
+		justify-content: center;
+		width:60%;
+		height: 100%;
+		font-size: 30px;
+	}
+
+	.bartext{
+		display: flex;
+		align-items: center;
+		font-size: 30px;
+		color: grey;
+	}
+	.cart{
+		display: flex;
+		align-items:center;
+		margin-left: auto;
+		padding-right: 3rem;
+		font-size: 1.5rem;
+		font-weight: 900;
+	}
+	.larrow{
+		position: absolute;
+		width: 5%;
+		height: 10%;
+		top:40vh;
+		background-color:black;
+		opacity: .5;
+		z-index: 5;
+		border-top-right-radius: 100%;
+		border-bottom-right-radius: 100%;
+		display:flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.rarrow{
+		position: absolute;
+		width: 5%;
+		height: 10%;
+		top:40vh;
+		right:0;
+		background-color:black;
+		opacity: .5;
+		z-index: 5;
+		border-top-left-radius: 100%;
+		border-bottom-left-radius: 100%;
+		display:flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.button{
+		position: absolute;
+		width: 100%;
+		height: 30%
+		right:0;
+		top:600px;
+		background: lightsteelblue;
+		padding-bottom: 500px;
+		//border: solid red;
+
+	}
+	.button .content{
+		padding-left: 40rem;
+		color: white;
+		font-weight: 900;
+	}
+</style>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+	<title>我们的食堂</title>
+</head>
+<body>
+	<div id="forfix">
+		<div class="main grid">
+			<div id="breakfast">
+				<div style="margin-top:50px; margin-left:100px;font-size:60px;font-family: f-Regular;color: white">
+				Breakfast</br></br></div>
+				<div style="text-align: center;font-family: STFangsong;font-size:20px;font-style:bold;">
+				想 给 你</br></br>在清晨的食堂里</br></br>叫上一碗热乎乎的豆浆</br></br>吃刚出锅的油条</div>
+				<img src="./image/green.png" style="width: 200px;position: absolute;right:0;top:50;">
+			</div>
+			<div id="dinner">
+				<div style="margin-left:60%;margin-top:80px;font-size:60px;font-family: f-Regular;color: white">
+					Dinner
+				</div>
+				<div style="margin-left:45%;margin-top:5px;font-family: STFangsong;font-size:15px;">
+					吃什么呢～
+				</div>
+				<img src="./image/yellow.png" style="width:50vw;position:absolute;bottom:0;">
+			</div>
+			<div id="lunch">
+				<div style="margin-top:245px; margin-left:150px;font-size:120px;font-family: f-Regular;color: white">
+					Lunch
+				</div>
+				<div style="margin-left:200px;margin-top:70px;font-family: STFangsong;font-size:20px;">
+					包你吃得饱饱的
+				</div>
+				<img src="./image/pink.png" style="width: 50vw;position:absolute;bottom:0;margin-left: -10px;">
+			</div>
+			<img src="./image/rice.png" style="width: 240px;position: absolute;right:40%;top:30%;">
+			<img src="./image/orange1.png" style="width: 150px;position: absolute;right:42%;bottom:23%;">
+			<img src="./image/orange2.png" style="width: 140px;position: absolute;right:48%;bottom:2%;">
+		</div>
+		<div id="menubar">
+			<img src="./image/logo.png" style="width: 200px;height: 180px;">
+			<ul>
+				<li ><div class="select" style="color:red;">首页</div></li>
+				<li ><div class="select" ><a href="ShoppingCar.html">我的订单</a></div></li>
+				<li ><div class="select" >订单统计</div></li>
+				<li class="select">今日菜品</li>
+				<li class="select">热卖菜品</li>
+				<li class="select">推荐菜品</li>
+			</ul>
+		</div>
+	</div>
+	<div id="secondlayout">
+		<div id="bar">
+			<img src="./image/logo.png" style="width: 7%;height: 100%;">
+			<div class="bartext">捞一捞好吃的</div>
+			<a class="cart" href="ShoppingCar.html">我的订单</a>
+		</div>
+		<div class="larrow">
+			-
+		</div>
+		<div class="rarrow">
+			-
+		</div>
+		<div id="menu1">
+			<div id="floor1">
+				<div class="inblock">
+					<img src="./image/smellfish1.jpeg">
+					<div class="name">鱼香肉丝</div>
+					<div class="cbutton">
+					<div class="price">
+						¥10
+					</div>
+					<div class="quantity">
+						<div class="minus" id="sub1">-</div>
+						<div class="real" id="number1">0</div>
+						<div class="plus" id="add1">+</div>
+					</div>
+					<div class="OK" id="ok1">
+						OK
+					</div>
+				</div>
+				</div>
+				
+			</div>
+			<div id="floor4">
+				<div class="inblock">
+					<img src="./image/spicypork.jpg">
+					<div class="name">水煮牛肉</div>
+					<div class="cbutton">
+					<div class="price">
+						¥16
+					</div>
+					<div class="quantity">
+						<div class="minus" id="sub2">-</div>
+						<div class="real" id="number2">0</div>
+						<div class="plus" id="add2">+</div>
+					</div>
+					<div class="OK" id="ok2">
+						OK
+					</div>
+				</div>
+				</div>
+			</div>
+			<div id="floor2">
+				<div class="inblock">
+					<img src="./image/beef.jpg">
+					<div class="name">红烧牛肉</div>
+					<div class="cbutton">
+					<div class="price">
+						¥16
+					</div>
+					<div class="quantity">
+						<div class="minus" id="sub3">-</div>
+						<div class="real" id="number3">0</div>
+						<div class="plus" id="add3">+</div>
+					</div>
+					<div class="OK" id="ok3">
+						OK
+					</div>
+				</div>
+				</div>
+			</div>
+			<div id="floor3">
+				<div class="inblock">
+					<img src="./image/spicypig.png">
+					<div class="name">尖椒肉丝</div>
+					<div class="cbutton">
+					<div class="price">
+						¥10
+					</div>
+					<div class="quantity">
+						<div class="minus" id="sub4">-</div>
+						<div class="real" id="number4">0</div>
+						<div class="plus" id="add4">+</div>
+					</div>
+					<div class="OK" id="ok4">
+						OK
+					</div>
+				</div>
+				</div>
+				
+			</div>
+		</div>
+		<div id="menu2">
+			<div id="floor1">
+				<div class="inblock">
+					<img src="./image/chicken.jpg">
+					<div class="name">道口烧鸡</div>
+					<div class="cbutton">
+					<div class="price">
+						¥26
+					</div>
+					<div class="quantity">
+						<div class="minus" id="sub5">-</div>
+						<div class="real" id=number5>0</div>
+						<div class="plus" id="add5">+</div>
+					</div>
+					<div class="OK" id="ok5">
+						OK
+					</div>
+				</div>
+				</div>
+				
+			</div>
+			<div id="floor2">
+				<div class="inblock">
+					<img src="./image/potato.png">
+					<div class="name">红烧土豆</div>
+					<div class="cbutton">
+					<div class="price">
+						¥8
+					</div>
+					<div class="quantity">
+						<div class="minus" id="sub6">-</div>
+						<div class="real" id="number6">0</div>
+						<div class="plus" id="add6">+</div>
+					</div>
+					<div class="OK" id="ok6">
+						OK
+					</div>
+				</div>
+				</div>
+			</div>
+			<div id="floor3">
+				<div class="inblock">
+					<img src="./image/egg.jpg">
+					<div class="name">蛋炒饭</div>
+					<div class="cbutton">
+					<div class="price">
+						¥6
+					</div>
+					<div class="quantity">
+						<div class="minus" id="sub7">-</div>
+						<div class="real" id="number7">0</div>
+						<div class="plus" id="add7">+</div>
+					</div>
+					<div class="OK" id="ok7">
+						OK
+					</div>
+				</div>
+				</div>
+			</div>
+			<div id="floor4">
+				<div class="inblock">
+					<img src="./image/cowpea.jpg">
+					<div class="name">烂肉豇豆</div>
+					<div class="cbutton">
+						<div class="price">
+							¥11
+						</div>
+						<div class="quantity">
+							<div class="minus" id="sub8">-</div>
+							<div class="real" id="number8">0</div>
+							<div class="plus" id="add8">+</div>
+					</div>
+					<div class="OK" id="ok8">
+						OK
+					</div>
+				</div>
+				</div>
+				
+			</div>
+		</div>
+		<div id="menu3">
+			<div id="floor2">
+				<div class="inblock">
+					<img src="./image/eggsoup.jpg">
+					<div class="name">紫菜蛋花汤</div>
+					<div class="cbutton">
+					<div class="price">
+						¥8
+					</div>
+					<div class="quantity">
+						<div class="minus" id="sub9">-</div>
+						<div class="real" id="number9">0</div>
+						<div class="plus" id="add9">+</div>
+					</div>
+					<div class="OK" id="ok9">
+						OK
+					</div>
+				</div>
+				</div>
+				
+			</div>
+			<div id="floor1">
+				<div class="inblock">
+					<img src="./image/curry.jpg">
+					<div class="name">咖喱鸡丁</div>
+					<div class="cbutton">
+					<div class="price">
+						¥12
+					</div>
+					<div class="quantity">
+						<div class="minus" id="sub10">-</div>
+						<div class="real" id="number10">0</div>
+						<div class="plus" id="add10">+</div>
+					</div>
+					<div class="OK" id="ok10">
+						OK
+					</div>
+				</div>
+				</div>
+			</div>
+			<div id="floor4">
+				<div class="inblock">
+					<img src="./image/mushroom.jpg">
+					<div class="name">小鸡炖蘑菇</div>
+					<div class="cbutton">
+					<div class="price">
+						¥12
+					</div>
+					<div class="quantity">
+						<div class="minus" id="sub11">-</div>
+						<div class="real" id="number11">0</div>
+						<div class="plus" id="add11">+</div>
+					</div>
+					<div class="OK" id="ok11">
+						OK
+					</div>
+				</div>
+				</div>
+			</div>
+			<div id="floor3">
+				<div class="inblock">
+					<img src="./image/garlic.png">
+					<div class="name">蒜泥白肉</div>
+					<div class="cbutton">
+					<div class="price">
+						¥14
+					</div>
+					<div class="quantity">
+						<div class="minus" id="sub12">-</div>
+						<div class="real" id="number12">0</div>
+						<div class="plus" id="add12">+</div>
+					</div>
+					<div class="OK" id="ok12">
+						OK
+					</div>
+				</div>
+				</div>
+								
+			</div>
+		</div>
+		<div class="button">
+			<a class="content">以上图片均来自于百度</a>
+		</div>
+	</div>
+</body>
+<!--div class="dealmenu">
+<ul>
+	<li class="food"><a href="#">鱼香肉丝</a></li>
+	<li class="food"><a href="#">番茄炒蛋</a></li>
+</ul>
+</div>
+<div class="dealmenu">
+<ul>
+	<li class="food"><a href="#">豆浆</a></li>
+	<li class="food"><a href="#">油条</a></li>
+</ul>
+</div>
+<div class="dealmenu">
+<ul>
+	<li class="food"><a href="#">干锅鸡</a></li>
+	<li class="food"><a href="#">炒饭</a></li>
+</ul>
+</div-->
+<!--div class="dealmenu dealmenu0">
+<div class="food">鱼香肉丝</div>
+<div class="food">番茄炒蛋</div>
+</div>
+<div class="dealmenu dealmenu1">
+<div class="food">豆浆</div>
+<div class="food">油条</div>
+</div>
+<div class="dealmenu dealmenu2">
+
+</div-->
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script>
+
+	/***数据库操作****/
+	//window.indexedDB.deleteDatabase("canteen");
+
+var request = window.indexedDB.open("restaurant", 1);
+var db;
+var number1=0;
+var number2=0;
+var number3=0;
+var number4=0;
+var number5=0;
+var number6=0;
+var number7=0;
+var number8=0;
+var number9=0;
+var number10=0;
+var number11=0;
+var number12=0;
+request.onerror = function (event) {
+	console.log('数据库打开报错');
+}
+request.onsuccess = function (event) {
+	db = request.result;
+	console.log('数据库打开成功');
+	//clearObjectStore('myfood');
+
+}
+request.onupgradeneeded = function (event) {
+	db = event.target.result;
+	console.log("hello");
+	objectStore = db.createObjectStore('myfood', { keyPath: 'foodid' });
+	objectStore.createIndex('foodname', 'foodname', { unique: false });
+	objectStore.createIndex('foodnumber','foodnumber',{unique:false});
+	objectStore.createIndex('foodprice','foodprice',{unique:false});
+	objectStore.createIndex('foodtype','foodtype',{unique:false});
+	objectStore.createIndex('foodstate','foodstate',{unique:false});
+}
+
+
+	function getObjectStore(store_name,mode){
+		var tx=db.transaction(store_name,mode);
+		return tx.objectStore(store_name);
+	}
+
+	function clearObjectStore(store_name){
+		var store=getObjectStore("myfood",'readwrite');
+		var req=store.clear();
+		req.onsuccess=function(event){
+			console.log("clear success");
+		}
+		req.onerror=function(event){
+			console.log("clear failure");
+		}
+	}
+	function addFood(foodid,foodname,foodnumber,foodprice,foodtype,foodstate){
+		var obj={foodid:foodid,foodname:foodname,foodnumber:foodnumber,foodprice:foodprice,foodtype:foodtype,foodstate:foodstate};
+			//console.log(obj.foodnumber);
+		var store=getObjectStore("myfood",'readwrite');
+		var req;
+			req=store.add(obj);
+		req.onsuccess=function(envent){
+			console.log("add success");
+		}
+		req.onerror=function(){
+			console.log("add failure");
+		}
+	}
+
+	  function getFood(id){
+		var store=getObjectStore("myfood",'readwrite');
+		var req=store.get(id);
+		req.onerror=function(event){
+			console.log('get failure');
+		}
+
+		request.onsuccess=function(event){
+			if(req.result){
+				return req.result;
+			}
+			else{
+				console.log('no the food');
+				return 0;
+			}
+		}
+	}
+
+/****数据相关结束*****/
+function getString(name){
+	var reg=new RegExp("(^|&)"+name+"=([^&]*)(&|$)","i");
+	var r=window.location.search.substr(1).match(reg);
+	if(r!=null) return unescape(r[2]); return null;
+}
+console.log('start');
+var a,b,c;
+$(".larrow").click(function(){
+	a=document.getElementById("menu1");
+	b=document.getElementById("menu2");
+	c=document.getElementById("menu3");
+	a.id = "menu3";
+	b.id = "menu1";
+	c.id = "menu2";
+		/*
+		$("#menu1").attr('id',"menu3");
+		$("#menu2").attr('id',"menu1");
+		$("#menu3").attr('id',"menu2");
+		*/
+	})
+$(".rarrow").click(function(){
+	a=document.getElementById("menu1");
+	b=document.getElementById("menu2");
+	c=document.getElementById("menu3");
+	a.id = "menu2";
+	b.id = "menu3";
+	c.id = "menu1";
+		/*
+		$("#menu1").attr('id',"menu2");
+		$("#menu2").attr('id',"menu3");
+		$("#menu3").attr('id',"menu1");
+		*/
+	})
+/**** 首页菜单 ****/
+$(document).ready(function(){
+
+
+	$("#sub1").click(function(){
+			if(number1>0){
+					number1--;
+				}else{
+					number1=0;
+				}
+				$("#number1").text(number1);
+				
+	});
+	$("#add1").click(function(){
+				if(number1<100){
+					number1++;
+
+				}else{
+					number1=99;
+				};
+				$("#number1").text(number1);
+	});
+
+	$("#ok1").click(function(){
+		if(number1==0){
+			alert("数量不可为0");
+			return 0;
+		}
+		addFood(1,"smellfish",number1,10,0,Math.round(Math.random()));
+		alert("点餐成功，请勿重复点餐");
+	});
+	$("#sub2").click(function(){
+				if(number2>0){
+					number2--;
+				}else{
+					number2=0;
+				}
+				$("#number2").text(number2);
+				
+	});
+	$("#ok2").click(function(){
+		if(number2==0){
+			alert("数量不可为0");
+			return 0;
+		}
+		addFood(2,"spicypork",number2,16,1,Math.round(Math.random()));
+		alert("点餐成功，请勿重复点餐");
+	});
+	$("#add2").click(function(){
+				if(number2<100){
+					number2++;
+
+				}else{
+					number2=99;
+				};
+				$("#number2").text(number2);
+	});
+	$("#sub3").click(function(){
+				if(number3>0){
+					number3--;
+				}else{
+					number3=0;
+				}
+				$("#number3").text(number3);
+				
+	});
+	$("#ok3").click(function(){
+		if(number3==0){
+			alert("数量不可为0");
+			return 0;
+		}
+		addFood(3,"beef",number3,16,1,Math.round(Math.random()));
+		alert("点餐成功，请勿重复点餐");
+	});
+	$("#add3").click(function(){
+				if(number3<100){
+					number3++;
+
+				}else{
+					number3=99;
+				};
+				$("#number3").text(number3);
+	});
+	
+	$("#sub4").click(function(){
+				if(number4>0){
+					number4--;
+				}else{
+					number4=0;
+				}
+				$("#number4").text(number4);
+				
+	});
+	$("#ok4").click(function(){
+		if(number4==0){
+			alert("数量不可为0");
+			return 0;
+		}
+		addFood(4,"spicypig",number4,10,0,Math.round(Math.random()));
+		alert("点餐成功，请勿重复点餐");
+	});
+	$("#add4").click(function(){
+				if(number4<100){
+					number4++;
+
+				}else{
+					number4=99;
+				};
+				$("#number4").text(number4);
+	});
+	$("#sub5").click(function(){
+				if(number5>0){
+					number5--;
+				}else{
+					number5=0;
+				}
+				$("#number5").text(number5);
+				
+	});
+	$("#ok5").click(function(){
+		if(number5==0){
+			alert("数量不可为0");
+			return 0;
+		}
+		addFood(5,"chicken",number5,26,1,Math.round(Math.random()));
+		alert("点餐成功，请勿重复点餐");
+	});
+	$("#add5").click(function(){
+				if(number5<100){
+					number5++;
+
+				}else{
+					number5=99;
+				};
+				$("#number5").text(number5);
+	});
+	$("#sub6").click(function(){
+				if(number6>0){
+					number6--;
+				}else{
+					number6=0;
+				}
+				$("#number6").text(number6);
+				
+	});
+	$("#ok6").click(function(){
+		if(number6==0){
+			alert("数量不可为0");
+			return 0;
+		}
+		addFood(6,"potato",number6,8,1,Math.round(Math.random()));
+		alert("点餐成功，请勿重复点餐");
+	});
+	$("#add6").click(function(){
+				if(number6<100){
+					number6++;
+
+				}else{
+					number6=99;
+				};
+				$("#number6").text(number6);
+	});
+	$("#sub7").click(function(){
+				if(number7>0){
+					number7--;
+				}else{
+					number7=0;
+				}
+				$("#number7").text(number7);
+				
+	});
+	$("#ok7").click(function(){
+		if(number7==0){
+			alert("数量不可为0");
+			return 0;
+		}
+		addFood(7,"egg",number7,6,0,Math.round(Math.random()));
+		alert("点餐成功，请勿重复点餐");
+	});
+	$("#add7").click(function(){
+				if(number7<100){
+					number7++;
+
+				}else{
+					number7=99;
+				};
+				$("#number7").text(number7);
+	});
+	$("#sub8").click(function(){
+				if(number8>0){
+					number8--;
+				}else{
+					number8=0;
+				}
+				$("#number8").text(number8);
+				
+	});
+	$("#ok8").click(function(){
+		if(number8==0){
+			alert("数量不可为0");
+			return 0;
+		}
+		addFood(8,"cowpea",number8,11,0,Math.round(Math.random()));
+		alert("点餐成功，请勿重复点餐");
+	});
+	$("#add8").click(function(){
+				if(number8<100){
+					number8++;
+
+				}else{
+					number8=99;
+				};
+				$("#number8").text(number8);
+	});
+	$("#sub9").click(function(){
+				if(number9>0){
+					number9--;
+				}else{
+					number9=0;
+				}
+				$("#number9").text(number9);
+				
+	});
+	$("#ok9").click(function(){
+		if(number9==0){
+			alert("数量不可为0");
+			return 0;
+		}
+		addFood(9,"eggsoup",number9,8,1,Math.round(Math.random()));
+		alert("点餐成功，请勿重复点餐");
+	});
+	$("#add9").click(function(){
+				if(number9<100){
+					number9++;
+
+				}else{
+					number9=99;
+				};
+				$("#number9").text(number9);
+	});
+	$("#sub10").click(function(){
+				if(number10>0){
+					number10--;
+				}else{
+					number10=0;
+				}
+				$("#number10").text(number10);
+				
+	});
+	$("#ok10").click(function(){
+		if(number10==0){
+			alert("数量不可为0");
+			return 0;
+		}
+		addFood(10,"curry",number10,12,0,Math.round(Math.random()));
+		alert("点餐成功，请勿重复点餐");
+	});
+	$("#add10").click(function(){
+				if(number10<100){
+					number10++;
+
+				}else{
+					number10=99;
+				};
+				$("#number10").text(number10);
+	});
+	$("#sub11").click(function(){
+
+				if(number11>0){
+					number11--;
+				}else{
+					number11=0;
+				}
+				$("#number11").text(number11);
+				
+	});
+	$("#ok11").click(function(){
+		if(number11==0){
+			alert("数量不可为0");
+			return 0;
+		}
+		addFood(11,"mushroom",number11,12,1,Math.round(Math.random()));
+		alert("点餐成功，请勿重复点餐");
+	});
+	$("#add11").click(function(){
+				if(number11<100){
+					number11++;
+
+				}else{
+					number11=99;
+				};
+				$("#number11").text(number11);
+	});
+	$("#sub12").click(function(){
+				if(number12>0){
+					number12--;
+				}else{
+					number12=0;
+				}
+				$("#number12").text(number12);
+				
+	});
+	$("#ok12").click(function(){
+		if(number12==0){
+			alert("数量不可为0");
+			return 0;
+		}
+		addFood(12,"garlic",number12,14,0,Math.round(Math.random()));
+		alert("点餐成功，请勿重复点餐");
+	});
+	$("#add12").click(function(){
+				if(number12<100){
+					number12++;
+
+				}else{
+					number12=99;
+				};
+				$("#number12").text(number12);
+	});
+});
+
+/*window.onload=function(){
+	var menu_list=document.getElementsByClassName('select');
+	var menu_deal=document.getElementsByClassName('dealmenu');
+
+	menu_list[3].addEventListener('mouseenter',function(){
+		menu_list[0].style.color = "red";
+		menu_list[1].style.color = "black";
+		menu_list[2].style.color = "black";
+		menu_deal[0].style.display = "block";
+		menu_deal[1].style.display = "none";
+		menu_deal[2].style.display = "none";
+	});
+	menu_list[4].addEventListener('mouseenter',function(){
+		menu_list[0].style.color = "black";
+		menu_list[1].style.color = "red";
+		menu_list[2].style.color = "black";
+		menu_deal[0].style.display = "none";
+		menu_deal[1].style.display = "block";
+		menu_deal[2].style.display = "none";
+	});
+	menu_list[5].addEventListener('mouseenter',function(){
+		menu_list[0].style.color = "black";
+		menu_list[1].style.color = "black";
+		menu_list[2].style.color = "red";
+		menu_deal[0].style.display = "none";
+		menu_deal[1].style.display = "none";
+		menu_deal[2].style.display = "block";
+	});
+	menu_deal[3].addEventListener('mouseleave',function(){
+		menu_deal[0].style.display = "none";
+		menu_list[0].style.color = "black";
+	});
+	menu_deal[4].addEventListener('mouseleave',function(){
+		menu_deal[1].style.display = "none";
+		menu_list[1].style.color = "black";
+	});
+	menu_deal[5].addEventListener('mouseleave',function(){
+		menu_deal[2].style.display = "none";
+		menu_list[2].style.color = "black";
+	});
+
+*/
+
+
+
+//$('#forfix').css('width',$(window).width);
+//$('#forfix').css('height',$(window).height);
+/* 菜单1移入选择 */
+/*
+function leavethendelete(){
+$('.dealmenu').removeClass('adddealmenu');
+$('.select1').removeClass('select0');
+}
+var menucount;
+$('.select1').mouseenter(function(event){
+$('.select1').addClass('select0');
+$('.dealmenu').addClass('adddealmenu');
+})
+$('.select1').mouseleave(function(){
+menucount = setTimeout(leavethendelete,500);
+})
+$('.dealmenu').mouseenter(function(){
+console.log("hello");
+clearTimeout(menucount);
+})
+$('.dealmenu').mouseleave(function(){
+menucount = setTimeout(leavethendelete,500);
+})
+*/
+/*
+$('.select1').hover(function(){
+$('.dealmenu0').addClass('adddealmenu');
+$('.select1').addClass('select0');
+},function(){
+$('.dealmenu0').hover(function(){
+
+},function(){
+	$('.dealmenu0').removeClass('adddealmenu');
+	$('.select1').removeClass('select0');
+})
+})*/
+/* 菜单2移入选择 */
+/*
+$('.select2').hover(function(){
+$('.dealmenu0').removeClass('adddealmenu');
+$('.select1').removeClass('select0');
+$('.dealmenu1').addClass('adddealmenu');
+$('.select2').addClass('select0');
+},function(){
+$('.dealmenu1').removeClass('adddealmenu');
+$('.select2').removeClass('select0');
+})
+$('.select3').hover(function(){
+$('.dealmenu2').addClass('adddealmenu');
+$('.select3').addClass('select0');
+},function(){
+$('.dealmenu2').removeClass('adddealmenu');
+$('.select3').removeClass('select0');
+})
+*/
+/*
+window.onload=function(){
+	var menu_list=document.getElementsByClassName('select');
+	var menu_deal=document.getElementsByClassName('dealmenu');
+	for(var i = 0;i<=2;i++){
+		menu_list[i].addEventListener('mouseenter',function(){
+			menu_deal[0].style.display = "block";
+		});
+	}
+	menu_deal[0].addEventListener('mouseleave',function(){
+			menu_deal[0].style.display = "none";
+	});
+}
+*/
+</script>
+</html>
